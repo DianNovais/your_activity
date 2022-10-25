@@ -1,0 +1,6 @@
+.header{
+    background-color: #282c34;
+    color: var(--color-blue-light);
+    text-align: center;
+    padding: 1rem;
+}
