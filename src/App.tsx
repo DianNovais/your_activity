@@ -13,13 +13,13 @@ import { Itask } from "./interfaces/Itask";
 import Modal from "./components/Modal/Modal";
 
 function App() {
-  const json = localStorage.getItem("taskList") || "{}";
-  const storage = JSON.parse(json);
-  const [taskList, setTaskList] = useState<Itask[]>([...storage]);
+  const [taskList, setTaskList] = useState<Itask[]>(() => {
+    const listJsonToObject = localStorage.getItem("taskList");
+    return listJsonToObject ? JSON.parse(listJsonToObject) : [];
+  });
+  
   const [viewTaskList, setViewTaskList] = useState<Itask[]>([]);
   const [taskToUpdate, setTaskToUpdate] = useState<Itask | null>(null);
-
-  console.log(taskList)
 
   const deleteHandler = (id: number) => {
     setTaskList(
@@ -65,6 +65,7 @@ function App() {
       
     }
   }, [taskList]);
+
 
   
 

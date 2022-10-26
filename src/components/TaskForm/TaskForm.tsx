@@ -18,6 +18,8 @@ function TaskForm({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
   const [difficulty, setDifficulty] = useState<number>(0);
   const [id, setId] = useState<number>(0);
 
+  console.log(taskList);
+
   useEffect(() => {
     if (task) {
       setTitle(task.title);
