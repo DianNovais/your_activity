@@ -15,10 +15,10 @@ type Props = {
 function TaskList({ viewTaskList, deleteHandler, handleEdit }: Props) {
   return (
     <>
-      {viewTaskList.length < 1 ? (
+       {viewTaskList.length < 1 ? (
         <p>Não á nenhuma atividade aqui :(</p>
       ) : (
-        viewTaskList.map((task) => (
+        viewTaskList.length > 0 && viewTaskList.map((task) => (
           <div key={task.id} className={styles.list_container}>
             <div className={styles.list_content}>
               <h3>{task.title}</h3>
@@ -34,6 +34,7 @@ function TaskList({ viewTaskList, deleteHandler, handleEdit }: Props) {
           </div>
         ))
       )}
+      
     </>
   );
 }
